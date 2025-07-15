@@ -1,10 +1,16 @@
+.section.cards-container {
+  margin: 1rem 0 2rem;
+}
+
 .cards > ul {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: auto;
+  grid-gap: 12px;
   list-style: none;
   margin: 0;
   padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(257px, 1fr));
-  grid-gap: 24px;
+  width: 100%;
 }
 
 .cards > ul > li {
@@ -12,8 +18,26 @@
   background-color: var(--background-color);
 }
 
+.cards > ul > li > a {
+  text-decoration: none;
+  position: relative;
+}
+
 .cards .cards-card-body {
-  margin: 16px;
+  position: absolute;
+  top: 0;
+  margin: 0;
+  width: 100%;
+  text-align: center;
+  background: rgba(0, 0, 0, .5);
+}
+
+.cards .cards-card-body p {
+  font-size: 18px;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 400;
+  margin: 5px 0;
 }
 
 .cards .cards-card-image {
@@ -24,4 +48,11 @@
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
+}
+
+@media (width >= 900px) {
+  .cards > ul {
+    grid-template-columns: repeat(auto-fit, minmax(23%, 1fr));
+    grid-auto-rows: 1fr;
+  }
 }
